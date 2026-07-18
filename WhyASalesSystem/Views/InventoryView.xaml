@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="WhyASalesSystem.Views.InventoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WhyASalesSystem.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#F5F5F5" Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <DockPanel Grid.Row="0">
+
+            <TextBlock Text="Inventory"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   VerticalAlignment="Center"
+                   DockPanel.Dock="Left"/>
+
+            <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+
+                <TextBox Width="250"
+                     Height="35"
+                     Margin="0,0,10,0"
+                     VerticalContentAlignment="Center"
+                     Text="ค้นหาสินค้า"/>
+
+                <Button Content="Add Product"
+                    Width="120"
+                    Height="35"/>
+            </StackPanel>
+
+        </DockPanel>
+
+        <!-- Product List -->
+        <DataGrid Grid.Row="2"
+              AutoGenerateColumns="False"
+              IsReadOnly="True">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Barcode"
+                                Binding="{Binding Barcode}"
+                                Width="130"/>
+
+                <DataGridTextColumn Header="Product Name"
+                                Binding="{Binding ProductName}"
+                                Width="*"/>
+
+                <DataGridTextColumn Header="Category"
+                                Binding="{Binding Category}"
+                                Width="150"/>
+
+                <DataGridTextColumn Header="Stock"
+                                Binding="{Binding Stock}"
+                                Width="80"/>
+
+                <DataGridTextColumn Header="Cost"
+                                Binding="{Binding Cost}"
+                                Width="100"/>
+
+                <DataGridTextColumn Header="Price"
+                                Binding="{Binding Price}"
+                                Width="100"/>
+
+                <DataGridTextColumn Header="Status"
+                                Binding="{Binding Status}"
+                                Width="120"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </Grid>
+</UserControl>
